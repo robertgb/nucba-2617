@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="https://renderer-v2.vercel.app/_next/image?url=https%3A%2F%2Fapi.typedream.com%2Fv0%2Fdocument%2Fpublic%2Fac4f6f0d-8160-4e58-9d18-cb5e7c880fb6_Recurso_32_png.png&w=384&q=75" />
+  <!-- Estilos Base -->
+  <link rel="stylesheet"
+    href="https://res.cloudinary.com/dcatzxqqf/raw/upload/v1659451742/coding/Dise%C3%B1oWebCDN/cdn_1_sjhqe3.css" />
+  <!-- Estilos Clase -->
+  <link rel="stylesheet" href="style.css" />
+  <title>CSS - Animaciones y transiciones</title>
+</head>
+
+<body>
+  <main class="max-width">
+    <h1>
+      1.13 Animaciones y Transiciones
+      <img
+        src="https://renderer-v2.vercel.app/_next/image?url=https%3A%2F%2Fapi.typedream.com%2Fv0%2Fdocument%2Fpublic%2Fac4f6f0d-8160-4e58-9d18-cb5e7c880fb6_Recurso_32_png.png&w=384&q=75"
+        alt="logo" class="logo" />
+    </h1>
+    <p>
+      En esta clase vamos a terminar de aplicar los pseudo elementos/clases al
+      Pedimon para después comenzar a ver animaciones y transiciones en CSS🤩
+    </p>
+    <h2>Objetivos</h2>
+    <p class="my">
+      Conocer y utilizar animaciones,transiciones y transformaciones en CSS
+    </p>
+    <a href="#" class="btn">Ver más</a>
+    <h2>Recursos de la clase:</h2>
+    <ul>
+      <li>
+        <a
+          href="https://developer.mozilla.org/es/docs/Web/CSS/CSS_Animations/Using_CSS_animations">https://developer.mozilla.org/es/docs/Web/CSS/CSS_Animations/Using_CSS_animations</a>
+      </li>
+
+      <li>
+        <a
+          href="https://www.w3schools.com/css/css3_animations.asp">https://www.w3schools.com/css/css3_animations.asp</a>
+      </li>
+      <li>
+        <a
+          href="https://css-tricks.com/almanac/properties/a/animation/">https://css-tricks.com/almanac/properties/a/animation/</a>
+      </li>
+      <li>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties</a>
+      </li>
+    </ul>
+    <hr class="hr" />
+    <section class="info-clase">
+      <!-- Transformaciones -->
+      <h2>Transformaciones</h2>
+
+      <b>Concepto de ejes</b>
+      <ul class="list">
+        <li>👉<b>Eje X</b> Horizontal / Izquierda a Derecha</li>
+        <li>👉<b>Eje Y</b> Vertical / Arriba a Abajo</li>
+        <li>👉<b>Eje Z</b> Adelante Atras, como si fuese 3D</li>
+      </ul>
+
+      <h3>transform:translate()</h3>
+      <p class="my">
+        Cambiamos la ubicacion del objeto.
+      </p>
+      <p class="code">transform:translate(10px,20px)</p>
+      <div class="bg-secondary my flex">
+
+
+
+
+
+        <!-- LINEA -->
+        <div class="caja translateX"></div>
+        <div class="caja translateY"></div>
+        <div class="caja translate"></div>
+        <!-- LINEA -->
+
+
+      </div>
+      <hr class="hr" />
+      <h3>transform:rotate()</h3>
+      <p class="my">
+        La rotación nos permite girar un objeto sin deformarlo.
+      </p>
+
+      <p class="code">transform:rotate(360deg)</p>
+      <div class="bg-secondary my flex">
+
+
+
+
+
+        <!-- LINEA -->
+        <div class="caja rotate"></div>
+        <div class="caja rotate-negative"></div> 
+        <!-- LINEA -->
+
+
+
+      </div>
+      <p class="my">
+        Tambien tenemos rotaciones en <b>rotateX,rotateY y rotateZ</b>
+      </p>
+
+      <hr class="hr" />
+      <h3>transform:scale()</h3>
+      <p class="my">
+        Cambiamos la escala del objeto.
+      </p>
+      <p class="code">transform:scale(2,1)</p>
+      <div class="bg-secondary my flex">
+
+
+
+
+
+        <!-- LINEA  -->
+        <div class="caja scaleX"></div>
+        <div class="caja scaleY"></div>
+        <div class="caja scale"></div>
+        <!-- LINEA  -->
+
+
+
+      </div>
+
+      <!-- Skew -->
+      <h3>transform:skew()</h3>
+      <p class="my">
+        Lo utilizamos para deformar objetos.
+      </p>
+      <p class="code">transform:skew(20deg,10deg)</p>
+      <div class="bg-secondary my flex">
+
+
+
+
+
+        <!-- LINEA -->
+        <div class="caja skewX"></div>
+        <div class="caja skewY"></div>
+        <div class="caja skew"></div>
+        <!-- LINEA -->
+
+
+
+      </div>
+      <p class="my">Tambien tenemos skew en <b>skewX y skewY</b></p>
+
+      <hr class="hr" />
+      <h2>Transiciones</h2>
+      <h3 class="my">Propiedades de transición</h3>
+      <b>transition-property</b>
+      <p class="my">Propiedades CSS afectadas por la transicion</p>
+      <p class="code">transition-property: all | none | propiedad css</p>
+
+      <b>transition-duration</b>
+      <p class="my">Tiempo de duración de la transición.</p>
+      <p class="code">transition-duration: 0 | 0.5s</p>
+      <div class="bg-secondary my flex">
+
+
+
+
+
+        <!-- LINEA -->
+        <div class="caja transition"></div>
+        <!-- LINEA -->
+
+
+
+      </div>
+      <b>transition-timing-function</b>
+      <p class="my">Curva de la transición</p>
+      <p class="code">
+        transition-timing-function: ease | ease-in | ease-out
+      </p>
+      <div class="bg-secondary my flex">
+
+
+
+
+
+        <!-- LINEA -->
+        <div class="caja transition-timing"></div>
+        <!-- LINEA -->
+
+
+
+      </div>
+
+      <b>transition-delay</b>
+      <p class="my">Tiempo de delay de la transición</p>
+      <p class="code">transition-delay: 0 | .15s</p>
+      <div class="bg-secondary my flex">
+
+
+
+
+        <!-- LINEA -->
+        <div class="caja transition-delay"></div>
+        <!-- LINEA -->
+
+
+
+
+      </div>
+      <b>Shorthand de transition</b>
+      <p class="my">Podemos resumir todas las propiedades en una sola.</p>
+      <p class="code">transition: all 0.5s ease;</p>
+      <div class="bg-secondary my flex">
+
+
+
+
+
+        <!-- LINEA -->
+        <div class="caja transition-shorthand"></div>
+        <!-- LINEA -->
+
+
+
+      </div>
+      <hr class="hr" />
+      <h2>Animaciones</h2>
+      
+      <p class="my">
+       Necesitamos de
+        <b>Propiedad animation y @keyframes</b>
+      </p>
+      <hr class="hr" />
+      <h3>Pasos para crear una animación</h3>
+      <p class="my">Creamos una caja</p>
+      <div class="bg-secondary">
+
+
+
+
+
+        <!-- LINEA -->
+        <div class="caja no-animada"></div>
+         <!-- LINEA -->
+
+
+
+      </div>
+      <p class="my">
+         <b>@keyframes</b>
+      </p>
+      <p class="code">
+        @keyframes moverCaja { 0% { transform: translateX(0); } 100% {
+        transform: translateX(200px); } }
+      </p>
+      
+      <ul class="list">
+        <li>👉<b>animation-name</b> nombre de la animación</li>
+        <li>👉<b>animation-duration</b> duración de la animación</li>
+      </ul>
+      <div class="bg-secondary">
+
+
+
+
+
+        <!-- LINEA -->
+        <div class="caja animada"></div>
+        <!-- LINEA -->
+
+
+
+      </div>
+      
+      <p class="code">animation-iteration-count: 1|2|infinite</p>
+      
+      <h3>¿Por qué vuelve de golpe?</h3>
+      <p class="my">
+        <b>animation-direction</b> .
+      </p>
+      <p class="code">
+        animation-direction: normal|reverse|alternate|alternate-reverse
+      </p>
+     
+      <div class="bg-secondary">
+
+
+
+
+
+        <!-- LINEA -->
+        <div class="caja animada alternada"></div>
+        <!-- LINEA -->
+
+
+
+      </div>
+      
+
+      <h3>Delay</h3>
+      
+      <p class="code">animation-delay: 2s;</p>
+
+      <h3>Timing function</h3>
+      <p class="my">
+        
+        <b>animation-timing-function</b>
+      </p>
+      <p class="code">
+        animation-timing-function: ease | ease-in | ease-in-out | ease-out |
+        linear;
+      </p>
+      <div class="bg-secondary">
+
+
+
+
+
+        <!-- LINEA -->
+        <div class="caja animada alternada timing"></div>
+        <!-- LINEA -->
+
+
+
+      </div>
+      
+      <h3>Estado de la animación</h3>
+      <b class="my">
+        
+        <b></b>animation-play-state</b>
+      </p>
+      <p class="code">elemento:hover { animation-play-state: paused;}</p>
+      <div class="bg-secondary my">
+
+
+
+
+
+        <!-- LINEA -->
+        <div class="caja animada paused alternada"></div>
+        <!-- LINEA -->
+
+
+
+      </div>
+      <b>⚡Shorthand⚡</b>
+      <p class="my">
+        Podemos resumir todas las propiedades en una sola <b>animation</b>
+      </p>
+      <p class="code">
+        animation: moverCaja infinite alternate ease-in-out 2s
+      </p>
+    </section>
+  </main>
+  <footer class="my">Hecho con ❤️ en Nucba</footer>
+</body>
+
+</html>

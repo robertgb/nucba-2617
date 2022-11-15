@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400;500;600;700&display=swap');
+
+/*
+    Jerarquía de estilos: 
+        - atributo style
+        - estilos del selector con ID
+        - estilos del selector con clase y pseudo-clase
+        - estilos del selector por etiquetas (h1 por ejemplo)
+        - selector universal
+*/
+/* Estos son selectores de etiqueta */
+h1 {
+    color: red;
+    font-family: 'Edu NSW ACT Foundation', cursive;
+    font-weight: bold;
+    font-style: oblique;
+    font-size: 50px;
+    letter-spacing: 10px;
+    word-spacing: 1em;
+
+}
+
+h1:hover{
+    background-color: coral;
+    cursor: pointer;
+}
+
+/* Selector universal */ 
+/* * {
+    border: 1px solid pink;
+} */
+
+ #titulo-principal {
+    color: white;
+    text-align:center;
+    background-color: grey;
+    font-family: 'Edu NSW ACT Foundation', cursive;
+ }
+
+ .titulo{
+    color: white
+ }
+
+
+#primer-parrafo{
+    height: 50vh;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    background-color: lightblue;
+    background-image: url("https://www.clarin.com/img/2022/07/24/sin-presupuesto-para-messi-pero___JRK8ex-e7_720x0__1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    line-height: 3em;
+    text-transform: capitalize;
+    text-decoration: line-through;
+}
+
+ul {
+    list-style: none;
+    list-style-image: url("");
+}

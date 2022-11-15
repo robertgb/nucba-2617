@@ -1,0 +1,19 @@
+// 1. primer corremos:
+git status
+esto nos dice que archivos cambiados
+
+// 2. corremos:
+git add .
+esto agrega TODOS los archivos cambiados
+
+// 3:
+git commit -m "MENSAJE DEL COMMIT"
+estos nos crea un commit (version de nuestro código, paquete de cambios) con TODOS
+los archivos que agregamos
+
+// 4:
+git push origin main
+git push origin master
+
+
+git branch -M main

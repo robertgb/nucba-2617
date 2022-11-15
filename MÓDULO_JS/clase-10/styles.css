@@ -1,0 +1,32 @@
+body {
+    width: 90%;
+    margin: 1em auto;
+    font-family: sans-serif;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form input {
+    padding: 0.5em 0;
+    border-radius: 1em;
+    margin: 1em 0;
+}
+
+.form button {
+    background-color: red;
+    padding: 1em;
+    border-radius: 1em;
+    color: white;
+}
+
+#error-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    background-color: orange;
+    border-radius: 1em;
+    border: 1px solid black;
+    display: none;
+}
