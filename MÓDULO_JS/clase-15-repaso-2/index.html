@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>JS - Clase 15 - Repaso</title>
+  </head>
+  <body>
+    <main>
+      <h1>2.15 - Clase de Repaso JS</h1>
+      <h2>Trabajo en grupo sobre las consignas en las Breakout Rooms</h2>
+      <p>Breve descripcion de lo que se verá en clase</p>
+      <h2>Consignas de la clase:</h2>
+
+      <ul>
+        <li>
+          📌Punto 1:
+          <p>
+            Crear un formulario de login que valide email y password. Debe
+            validar que no esten vacíos y que cumplan con la REGEX. Contraseña
+            debe tener: mayúsculas, minúsculas, números y símbolos
+          </p>
+        </li>
+        <div>
+          <form id="loginForm">
+            <div>
+              <label for="email">Email</label>
+              <input type="email" name="name" id="email" placeholder="email" />
+              <small></small>
+            </div>
+            <div>
+              <label for="password">password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="password"
+              />
+              <small></small>
+            </div>
+            <button>Login</button>
+          </form>
+        </div>
+        <hr class="hr" />
+
+        <li>
+          📌 Punto 2:
+          <p>
+            Renderizar una lista de películas con la data provista. Diseño a
+            elección
+          </p>
+        </li>
+
+        <div>
+          <h2>Pelis</h2>
+          <ul id="movies-container"></ul>
+        </div>
+        <hr class="hr" />
+
+        <li>
+          📌 Punto 3:
+          <p>
+            Crear una shopping list. El usuario debe poder meter ingresar items
+            y se deben mostrar en una lista en el html
+          </p>
+
+          <div>
+            <h3>ShoppingList</h3>
+            <form id="shopping-form">
+              <input type="text" id="shopping-list-input" />
+              <button>add</button>
+            </form>
+            <ul id="shopping-list"></ul>
+          </div>
+        </li>
+      </ul>
+      <hr class="hr" />
+    </main>
+
+    <!-- scripts -->
+    <script src="./main.js"></script>
+  </body>
+</html>
