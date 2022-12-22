@@ -169,6 +169,164 @@ const closeOnOverlayClick = () => {
   overlay.classList.remove("show-overlay");
 };
 
+const renderCartProduct = ({ id, name, bid, img, quantity }) => {
+  return `
+  <div class="cart-item">
+    <img src=${img} alt="Nft del carrito" />
+    <div class="item-info">
+      <h3 class="item-title">${name}</h3>
+      <p class="item-bid">Current bid</p>
+      <span class="item-price">${bid} ETH</span>
+    </div>
+    <div class="item-handler">
+      <span class="quantity-handler down" data-id=${id}>-</span>
+      <span class="item-quantity">${quantity}</span>
+      <span class="quantity-handler up" data-id=${id}>+</span>
+    </div>
+  </div>
+  `;
+};
+
+const renderCart = () => {
+  if (!cart.length) {
+    productsCart.innerHTML = `<p class="empty-msg">No hay productos en el carrito.</p>`;
+    return;
+  }
+  productsCart.innerHTML = cart.map(renderCartProduct).join("");
+};
+
+const getCartTotal = () => {
+  return cart.reduce(
+    (accum, currentValue) =>
+      accum + Number(currentValue.bid) * currentValue.quantity,
+    0
+  );
+};
+
+const showTotal = () => {
+  total.innerHTML = `${getCartTotal().toFixed(2)} eTH`;
+};
+
+const isExistingCartProduct = ({ id }) =>
+  cart.some((product) => product.id === id);
+
+const createCartProduct = (product) => {
+  cart = [...cart, { ...product, quantity: 1 }];
+};
+
+const showSuccessModal = (msg) => {
+  successModal.classList.add("active-modal");
+  successModal.textContent = msg;
+  setTimeout(() => {
+    successModal.classList.remove("acive-modal");
+  }, 1500);
+};
+
+const disableBtn = (button) => {
+  if (!cart.length) {
+    button.classList.add("disabled");
+  } else {
+    button.classList.remove("disabled");
+  }
+};
+
+const checkCartState = () => {
+  saveLocalStorage(cart);
+  renderCart();
+  showTotal();
+  disableBtn(buyBtn);
+  disableBtn(deleteBtn);
+  renderCartBubble();
+};
+
+const addUnitToProduct = (product) => {
+  cart = cart.map((cartProduct) =>
+    cartProduct.id === product.id
+      ? { ...cartProduct, quantity: cartProduct.quantity + 1 }
+      : cartProduct
+  );
+};
+
+const addProduct = (e) => {
+  if (!e.target.classList.contains("btn-add")) return;
+  const { id, name, bid, img } = e.target.dataset;
+
+  const product = { id, name, bid, img };
+  if (isExistingCartProduct(product)) {
+    addUnitToProduct(product);
+    showSuccessModal("Se agegó una unidad del producto al carrito.");
+  } else {
+    createCartProduct(product);
+    showSuccessModal("El producto se ha agregado al carrito.");
+  }
+  checkCartState();
+};
+
+const renderCartBubble = () => {
+  cartBubble.textContent = cart.reduce((acc, cur) => acc + cur.quantity, 0);
+};
+
+const resetCartItems = () => {
+  cart = [];
+  checkCartState();
+};
+
+const completeCartAction = (confirmMsg, successMsg) => {
+  if (!cart.length) return;
+  if (window.confirm(confirmMsg)) {
+    resetCartItems();
+    alert(successMsg);
+  }
+};
+
+const completeBuy = () => {
+  completeCartAction("¿Desea completar su compra?", "Gracias por su compra!");
+};
+
+const deleteCart = () => {
+  completeCartAction(
+    "¿Desea eliminar todos los productos del carrito?",
+    "El carrito se ha vacido"
+  );
+};
+
+const handlePlusBtnEvent = (id) => {
+  const existingProduct = cart.find((product) => product.id === id);
+  addUnitToProduct(existingProduct);
+};
+
+const removeProductFromCart = ({ id }) => {
+  cart = cart.filter((product) => product.id !== id);
+  checkCartState();
+};
+
+const substractProductUnit = ({ id }) => {
+  cart = cart.map((product) =>
+    product.id === id ? { ...product, quantity: product.quantity - 1 } : product
+  );
+};
+
+const handleMinutBtnEvent = (id) => {
+  const existingProduct = cart.find((product) => product.id === id);
+
+  if (existingProduct.quantity === 1) {
+    if (window.confirm("¿Desea eliminar el producto del carrito?")) {
+      removeProductFromCart(existingProduct);
+    }
+    return;
+  }
+  substractProductUnit(existingProduct);
+};
+
+const handleQuantity = (e) => {
+  if (e.target.classList.contains("down")) {
+    handleMinutBtnEvent(e.target.dataset.id);
+  } else if (e.target.classList.contains("up")) {
+    handlePlusBtnEvent(e.target.dataset.id);
+  }
+  checkCartState();
+};
+
 const init = () => {
   renderProducts();
   btnLoad.addEventListener("click", showMoreProducts);
@@ -180,5 +338,17 @@ const init = () => {
   window.addEventListener("scroll", closeOnScroll);
   barsMenu.addEventListener("click", closeOnClick);
   overlay.addEventListener("click", closeOnOverlayClick);
+
+  document.addEventListener("DOMContentLoaded", renderCart);
+  document.addEventListener("DOMContentLoaded", showTotal);
+
+  productsCart.addEventListener("click", handleQuantity);
+  products.addEventListener("click", addProduct);
+  buyBtn.addEventListener("click", completeBuy);
+  deleteBtn.addEventListener("click", deleteCart);
+
+  disableBtn(buyBtn);
+  disableBtn(deleteBtn);
+  renderCartBubble();
 };
 init();
